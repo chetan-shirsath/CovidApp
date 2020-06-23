@@ -51,9 +51,9 @@ export class CovidTableComponent extends React.Component{
         </TableHead>
         <TableBody>
           {items.map((item) => (
-            <TableRow key={item.country}>
+            <TableRow key={item.Country}>
               <TableCell component="th" scope="row">
-                {item.country}
+                {item.Country}
               </TableCell>
               <TableCell align="right">{item.TotalConfirmed}</TableCell>
               <TableCell align="right">{item.TotalRecovered}</TableCell>
