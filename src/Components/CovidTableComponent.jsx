@@ -18,13 +18,13 @@ export class CovidTableComponent extends React.Component{
       }
     
       componentDidMount() {
-        fetch("https://covidtracking.com/api/states")
+        fetch("https://api.covid19api.com/summary")
           .then(res => res.json())
           .then(
             (result) => {
                 console.log(result);
               this.setState({
-                items: result
+                items: result.Countries
               });
             },
 
@@ -42,23 +42,23 @@ export class CovidTableComponent extends React.Component{
       <Table className='table' aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>State</TableCell>
-            <TableCell align="right">Positive</TableCell>
-            <TableCell align="right">Negative</TableCell>
-            <TableCell align="right">Total</TableCell>
-            <TableCell align="right">Death</TableCell>
+            <TableCell>Country</TableCell>
+            <TableCell align="right">Total Confirmed</TableCell>
+            <TableCell align="right">Total Recovered</TableCell>
+            <TableCell align="right">New Deaths</TableCell>
+            <TableCell align="right">Total Deaths</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {items.map((item) => (
-            <TableRow key={item.state}>
+            <TableRow key={item.country}>
               <TableCell component="th" scope="row">
-                {item.state}
+                {item.country}
               </TableCell>
-              <TableCell align="right">{item.positive}</TableCell>
-              <TableCell align="right">{item.negative}</TableCell>
-              <TableCell align="right">{item.total}</TableCell>
-              <TableCell align="right">{item.death}</TableCell>
+              <TableCell align="right">{item.TotalConfirmed}</TableCell>
+              <TableCell align="right">{item.TotalRecovered}</TableCell>
+              <TableCell align="right">{item.NewDeaths}</TableCell>
+              <TableCell align="right">{item.TotalDeaths}</TableCell>
             </TableRow>
           ))}
         </TableBody>
