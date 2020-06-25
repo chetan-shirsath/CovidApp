@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { CovidTableComponent } from './Components/CovidTableComponent';
+import { CovidTableComponent } from './components/CovidTableComponent';
 
 function App() {
   return (
